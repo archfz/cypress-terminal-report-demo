@@ -18,7 +18,9 @@ const installLogsPrinter = require('cypress-terminal-report/src/installLogsPrint
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  installLogsPrinter(on);
+  installLogsPrinter(on, {
+    printLogsToConsole: "always"
+  });
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
