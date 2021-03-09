@@ -9,7 +9,7 @@
   "author": "Fodor Zoltan",
   "license": "MIT",
   "dependencies": {
-    "cypress": "^5.6.0",
-    "cypress-terminal-report": "^2.2.0"
+    "cypress": "^6.6.0",
+    "cypress-terminal-report": "^3.0.0"
   }
 }
