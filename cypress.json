@@ -1,1 +1,9 @@
-{}
+{
+  "projectId": "**",
+  "integrationFolder": "cypress/tests",
+  "testFiles": ["**/*.spec.ts"],
+  "nodeVersion": "system",
+  "env": {
+    "FAIL_FAST_STRATEGY": "spec"
+  }
+}
