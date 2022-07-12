@@ -15,6 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-require('cypress-terminal-report/src/installLogsCollector')();
+import installLogsCollector from 'cypress-terminal-report/src/installLogsCollector'
+
+installLogsCollector()
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
