@@ -15,17 +15,16 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import registerCypressGrep from "cypress-grep";
 import registerCypressLogCollector, {
   SupportOptions,
 } from "cypress-terminal-report/src/installLogsCollector";
-registerCypressGrep();
+
 const options: SupportOptions = {
-  collectTypes: ["cy:log", "cy:command"],
+  collectTypes:['cons:error', 'cons:warn', 'cons:log','cons:info'],
   enableContinuousLogging: false,
   enableExtendedCollector: false,
   debug: false,
-};
+}
 registerCypressLogCollector(options);
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

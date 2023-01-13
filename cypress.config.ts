@@ -6,14 +6,14 @@ export default defineConfig({
     specPattern: 'cypress/e2e/**/*.spec.ts',
     setupNodeEvents(on, config) {
       installLogsPrinter(on, {
-        outputRoot: config.projectRoot + "/logs/",
-        specRoot: "cypress/e2e",
+        printLogsToConsole: 'always',
+        printLogsToFile: 'always',
+        outputRoot: config.projectRoot + '/cypress/logs/',
+        logToFilesOnAfterRun: true,
+
         outputTarget: {
-          "cypress-logs|json": "json",
+          'consoleLogs.txt': 'txt',
         },
-        printLogsToFile: "always",
-        printLogsToConsole: "onFail",
-        includeSuccessfulHookLogs: false,
       });
     }
   }
