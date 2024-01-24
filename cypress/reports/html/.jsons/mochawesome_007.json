@@ -1,0 +1,221 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-24T10:48:17.762Z",
+    "end": "2024-01-24T10:48:21.551Z",
+    "duration": 3789,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f0cc23c8-0cb3-4720-a991-819285b00ae5",
+      "title": "",
+      "fullFile": "cypress/integration/misc.cy.ts",
+      "file": "cypress/integration/misc.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7e3ec013-75fc-4a05-9dfa-2d16e237d96b",
+          "title": "Misc",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": ".end() - end the command chain",
+              "fullTitle": "Misc .end() - end the command chain",
+              "timedOut": null,
+              "duration": 406,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/misc\\n        cy:command (K): get\\t.misc-table\\n        cy:command (K): within\\n        cy:command (K): contains\\tCheryl\\n        cy:command (K): click\\n        cy:command (K): contains\\tCharles\\n        cy:command (K): click\\n\"\n]",
+              "code": "// https://on.cypress.io/end\n// cy.end is useful when you want to end a chain of commands\n// and force Cypress to re-query from the root element\ncy.get('.misc-table').within(function () {\n    // ends the current chain and yields null\n    cy.contains('Cheryl').click().end();\n    // queries the entire table again\n    cy.contains('Charles').click();\n});",
+              "err": {},
+              "uuid": "b477bf45-bbb0-4935-856d-59923caf8bd1",
+              "parentUUID": "7e3ec013-75fc-4a05-9dfa-2d16e237d96b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.exec() - execute a system command",
+              "fullTitle": "Misc cy.exec() - execute a system command",
+              "timedOut": null,
+              "duration": 204,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/misc\\n            cy:log (K): Platform linux architecture x64\\n        cy:command (K): exec\\techo Jane Lane\\n        cy:command (K): its\\t.stdout\\n        cy:command (K): assert\\texpected **Jane Lane** to include **Jane Lane**\\n        cy:command (K): exec\\tcat cypress.config.ts\\n        cy:command (K): its\\t.stderr\\n        cy:command (K): assert\\texpected **''** to be empty\\n        cy:command (K): exec\\tpwd\\n        cy:command (K): its\\t.code\\n        cy:command (K): assert\\texpected **0** to equal **0**\\n\"\n]",
+              "code": "// execute a system command.\n// so you can take actions necessary for\n// your test outside the scope of Cypress.\n// https://on.cypress.io/exec\n// we can use Cypress.platform string to\n// select appropriate command\n// https://on.cypress/io/platform\ncy.log(\"Platform \".concat(Cypress.platform, \" architecture \").concat(Cypress.arch));\n// on CircleCI Windows build machines we have a failure to run bash shell\n// https://github.com/cypress-io/cypress/issues/5169\n// so skip some of the tests by passing flag \"--env circle=true\"\nvar isCircleOnWindows = Cypress.platform === 'win32' && Cypress.env('circle');\nif (isCircleOnWindows) {\n    cy.log('Skipping test on CircleCI');\n    return;\n}\n// cy.exec problem on Shippable CI\n// https://github.com/cypress-io/cypress/issues/6718\nvar isShippable = Cypress.platform === 'linux' && Cypress.env('shippable');\nif (isShippable) {\n    cy.log('Skipping test on ShippableCI');\n    return;\n}\ncy.exec('echo Jane Lane')\n    .its('stdout').should('contain', 'Jane Lane');\nif (Cypress.platform === 'win32') {\n    cy.exec(\"print \".concat(Cypress.config('configFile')))\n        .its('stderr').should('be.empty');\n}\nelse {\n    cy.exec(\"cat \".concat(Cypress.config('configFile')))\n        .its('stderr').should('be.empty');\n    cy.exec('pwd')\n        .its('code').should('eq', 0);\n}",
+              "err": {},
+              "uuid": "895d0dc0-56b1-4984-a171-60000b23da27",
+              "parentUUID": "7e3ec013-75fc-4a05-9dfa-2d16e237d96b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.focused() - get the DOM element that has focus",
+              "fullTitle": "Misc cy.focused() - get the DOM element that has focus",
+              "timedOut": null,
+              "duration": 258,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/misc\\n        cy:command (K): get\\t.misc-form\\n        cy:command (K): find\\t#name\\n        cy:command (K): click\\n        cy:command (K): focused\\n        cy:command (K): assert\\texpected **<input#name.form-control>** to have id **name**\\n        cy:command (K): get\\t.misc-form\\n        cy:command (K): find\\t#description\\n        cy:command (K): click\\n        cy:command (K): focused\\n        cy:command (K): assert\\texpected **<textarea#description.form-control>** to have id **description**\\n\"\n]",
+              "code": "// https://on.cypress.io/focused\ncy.get('.misc-form').find('#name').click();\ncy.focused().should('have.id', 'name');\ncy.get('.misc-form').find('#description').click();\ncy.focused().should('have.id', 'description');",
+              "err": {},
+              "uuid": "105e1c7b-0e33-4956-baee-c31e3be0531d",
+              "parentUUID": "7e3ec013-75fc-4a05-9dfa-2d16e237d96b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.wrap() - wrap an object",
+              "fullTitle": "Misc cy.wrap() - wrap an object",
+              "timedOut": null,
+              "duration": 85,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/misc\\n        cy:command (K): wrap\\t{foo: bar}\\n        cy:command (K): assert\\texpected **{ foo: bar }** to have property **foo**\\n        cy:command (K): assert\\texpected **bar** to include **bar**\\n\"\n]",
+              "code": "// https://on.cypress.io/wrap\ncy.wrap({ foo: 'bar' })\n    .should('have.property', 'foo')\n    .and('include', 'bar');",
+              "err": {},
+              "uuid": "9a5ec970-cf06-4e5d-8841-397eabbb7a61",
+              "parentUUID": "7e3ec013-75fc-4a05-9dfa-2d16e237d96b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "50325354-ba9d-4fe1-a4c9-bf939bba43a7",
+              "title": "Cypress.Screenshot",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "cy.screenshot() - take a screenshot",
+                  "fullTitle": "Misc Cypress.Screenshot cy.screenshot() - take a screenshot",
+                  "timedOut": null,
+                  "duration": 969,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/misc.cy.ts/my-image.png\"\n      ]\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/misc\\n        cy:command (K): screenshot\\tmy-image\\n\"\n]",
+                  "code": "// https://on.cypress.io/screenshot\ncy.screenshot('my-image');",
+                  "err": {},
+                  "uuid": "1ffa2039-28e1-4815-ac8d-252014ae207c",
+                  "parentUUID": "50325354-ba9d-4fe1-a4c9-bf939bba43a7",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Cypress.Screenshot.defaults() - change default config of screenshots",
+                  "fullTitle": "Misc Cypress.Screenshot Cypress.Screenshot.defaults() - change default config of screenshots",
+                  "timedOut": null,
+                  "duration": 96,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/misc\\n\"\n]",
+                  "code": "Cypress.Screenshot.defaults({\n    blackout: ['.foo'],\n    capture: 'viewport',\n    clip: { x: 0, y: 0, width: 200, height: 200 },\n    scale: false,\n    disableTimersAndAnimations: true,\n    screenshotOnRunFailure: true,\n    onBeforeScreenshot: function () { },\n    onAfterScreenshot: function () { },\n});",
+                  "err": {},
+                  "uuid": "3373fdfb-7358-465a-84b2-53acdf48d67a",
+                  "parentUUID": "50325354-ba9d-4fe1-a4c9-bf939bba43a7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1ffa2039-28e1-4815-ac8d-252014ae207c",
+                "3373fdfb-7358-465a-84b2-53acdf48d67a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1065,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "b477bf45-bbb0-4935-856d-59923caf8bd1",
+            "895d0dc0-56b1-4984-a171-60000b23da27",
+            "105e1c7b-0e33-4956-baee-c31e3be0531d",
+            "9a5ec970-cf06-4e5d-8841-397eabbb7a61"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 953,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

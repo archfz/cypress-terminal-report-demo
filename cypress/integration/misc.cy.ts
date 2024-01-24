@@ -55,10 +55,10 @@ context('Misc', () => {
       .its('stdout').should('contain', 'Jane Lane')
 
     if (Cypress.platform === 'win32') {
-      cy.exec('print cypress.json')
+      cy.exec(`print ${Cypress.config('configFile')}`)
         .its('stderr').should('be.empty')
     } else {
-      cy.exec('cat cypress.json')
+      cy.exec(`cat ${Cypress.config('configFile')}`)
         .its('stderr').should('be.empty')
 
       cy.exec('pwd')
@@ -89,9 +89,6 @@ context('Misc', () => {
         scale: false,
         disableTimersAndAnimations: true,
         screenshotOnRunFailure: true,
-        // TODO: remove this when Cypress typedefs are fixed
-        // https://github.com/cypress-io/cypress/pull/7445
-        // @ts-ignore
         onBeforeScreenshot () { },
         onAfterScreenshot () { },
       })

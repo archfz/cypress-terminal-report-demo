@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-24T10:49:15.380Z",
+    "end": "2024-01-24T10:49:18.612Z",
+    "duration": 3232,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8cf1786b-c1b2-47c5-93f3-193785c0522c",
+      "title": "",
+      "fullFile": "cypress/integration/cookies.cy.ts",
+      "file": "cypress/integration/cookies.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+          "title": "Cookies",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.getCookie() - get a browser cookie",
+              "fullTitle": "Cookies cy.getCookie() - get a browser cookie",
+              "timedOut": null,
+              "duration": 350,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): get\\t#getCookie .set-a-cookie\\n        cy:command (K): click\\n        cy:command (K): getCookie\\ttoken\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value** of **123ABC**\\n                        Actual: \\t\\\"123ABC\\\"\\n                        Expected: \\t\\\"123ABC\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/getcookie\ncy.get('#getCookie .set-a-cookie').click();\n// cy.getCookie() yields a cookie object\ncy.getCookie('token').should('have.property', 'value', '123ABC');",
+              "err": {},
+              "uuid": "f2cef237-bd63-4587-a6d6-03e59c400267",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.getCookies() - get browser cookies for the current domain",
+              "fullTitle": "Cookies cy.getCookies() - get browser cookies for the current domain",
+              "timedOut": null,
+              "duration": 187,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): getCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n        cy:command (K): get\\t#getCookies .set-a-cookie\\n        cy:command (K): click\\n        cy:command (K): getCookies\\n        cy:command (K): assert\\texpected **[ Array(1) ]** to have a length of **1**\\n                        Actual: \\t1\\n                        Expected: \\t1\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **name**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **name** of **token**\\n                        Actual: \\t\\\"token\\\"\\n                        Expected: \\t\\\"token\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value** of **123ABC**\\n                        Actual: \\t\\\"123ABC\\\"\\n                        Expected: \\t\\\"123ABC\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **httpOnly**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **httpOnly** of **false**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **secure**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **secure** of **false**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **domain**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **path**\\n\"\n]",
+              "code": "// https://on.cypress.io/getcookies\ncy.getCookies().should('be.empty');\ncy.get('#getCookies .set-a-cookie').click();\n// cy.getCookies() yields an array of cookies\ncy.getCookies().should('have.length', 1).should(function (cookies) {\n    // each cookie has these properties\n    expect(cookies[0]).to.have.property('name', 'token');\n    expect(cookies[0]).to.have.property('value', '123ABC');\n    expect(cookies[0]).to.have.property('httpOnly', false);\n    expect(cookies[0]).to.have.property('secure', false);\n    expect(cookies[0]).to.have.property('domain');\n    expect(cookies[0]).to.have.property('path');\n});",
+              "err": {},
+              "uuid": "b5f67320-2929-464b-a3bd-9c52fdebfb5a",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.getAllCookies() - get all browser cookies",
+              "fullTitle": "Cookies cy.getAllCookies() - get all browser cookies",
+              "timedOut": null,
+              "duration": 109,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): getAllCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n        cy:command (K): setCookie\\tkey, value\\n        cy:command (K): setCookie\\tkey, value, {domain: .example.com}\\n        cy:command (K): getAllCookies\\n        cy:command (K): assert\\texpected **[ Array(2) ]** to have a length of **2**\\n                        Actual: \\t2\\n                        Expected: \\t2\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **name**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **name** of **key**\\n                        Actual: \\t\\\"key\\\"\\n                        Expected: \\t\\\"key\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value** of **value**\\n                        Actual: \\t\\\"value\\\"\\n                        Expected: \\t\\\"value\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **httpOnly**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **httpOnly** of **false**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **secure**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **secure** of **false**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **domain**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **path**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **name**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **name** of **key**\\n                        Actual: \\t\\\"key\\\"\\n                        Expected: \\t\\\"key\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value** of **value**\\n                        Actual: \\t\\\"value\\\"\\n                        Expected: \\t\\\"value\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **httpOnly**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **httpOnly** of **false**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **secure**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **secure** of **false**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **domain**\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **domain** of **.example.com**\\n                        Actual: \\t\\\".example.com\\\"\\n                        Expected: \\t\\\".example.com\\\"\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **path**\\n\"\n]",
+              "code": "// https://on.cypress.io/getallcookies\ncy.getAllCookies().should('be.empty');\ncy.setCookie('key', 'value');\ncy.setCookie('key', 'value', { domain: '.example.com' });\n// cy.getAllCookies() yields an array of cookies\ncy.getAllCookies().should('have.length', 2).should(function (cookies) {\n    // each cookie has these properties\n    expect(cookies[0]).to.have.property('name', 'key');\n    expect(cookies[0]).to.have.property('value', 'value');\n    expect(cookies[0]).to.have.property('httpOnly', false);\n    expect(cookies[0]).to.have.property('secure', false);\n    expect(cookies[0]).to.have.property('domain');\n    expect(cookies[0]).to.have.property('path');\n    expect(cookies[1]).to.have.property('name', 'key');\n    expect(cookies[1]).to.have.property('value', 'value');\n    expect(cookies[1]).to.have.property('httpOnly', false);\n    expect(cookies[1]).to.have.property('secure', false);\n    expect(cookies[1]).to.have.property('domain', '.example.com');\n    expect(cookies[1]).to.have.property('path');\n});",
+              "err": {},
+              "uuid": "ef146894-c5b7-41d9-8b2e-f020afc89968",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.setCookie() - set a browser cookie",
+              "fullTitle": "Cookies cy.setCookie() - set a browser cookie",
+              "timedOut": null,
+              "duration": 144,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): getCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n        cy:command (K): setCookie\\tfoo, bar\\n        cy:command (K): getCookie\\tfoo\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value** of **bar**\\n                        Actual: \\t\\\"bar\\\"\\n                        Expected: \\t\\\"bar\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/setcookie\ncy.getCookies().should('be.empty');\ncy.setCookie('foo', 'bar');\n// cy.getCookie() yields a cookie object\ncy.getCookie('foo').should('have.property', 'value', 'bar');",
+              "err": {},
+              "uuid": "d4ed4683-261d-4994-b06f-3fdeec4e8d8b",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.clearCookie() - clear a browser cookie",
+              "fullTitle": "Cookies cy.clearCookie() - clear a browser cookie",
+              "timedOut": null,
+              "duration": 191,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): getCookie\\ttoken\\n        cy:command (K): assert\\texpected **null** to be null\\n        cy:command (K): get\\t#clearCookie .set-a-cookie\\n        cy:command (K): click\\n        cy:command (K): getCookie\\ttoken\\n        cy:command (K): assert\\texpected **{ Object (name, value, ...) }** to have property **value** of **123ABC**\\n                        Actual: \\t\\\"123ABC\\\"\\n                        Expected: \\t\\\"123ABC\\\"\\n        cy:command (K): clearCookie\\ttoken\\n        cy:command (K): assert\\texpected **null** to be null\\n        cy:command (K): getCookie\\ttoken\\n        cy:command (K): assert\\texpected **null** to be null\\n\"\n]",
+              "code": "// https://on.cypress.io/clearcookie\ncy.getCookie('token').should('be.null');\ncy.get('#clearCookie .set-a-cookie').click();\ncy.getCookie('token').should('have.property', 'value', '123ABC');\n// cy.clearCookies() yields null\ncy.clearCookie('token').should('be.null');\ncy.getCookie('token').should('be.null');",
+              "err": {},
+              "uuid": "e547a49e-5f09-4739-af6f-0e2da3519185",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.clearCookies() - clear browser cookies for the current domain",
+              "fullTitle": "Cookies cy.clearCookies() - clear browser cookies for the current domain",
+              "timedOut": null,
+              "duration": 224,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): getCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n        cy:command (K): get\\t#clearCookies .set-a-cookie\\n        cy:command (K): click\\n        cy:command (K): getCookies\\n        cy:command (K): assert\\texpected **[ Array(1) ]** to have a length of **1**\\n                        Actual: \\t1\\n                        Expected: \\t1\\n        cy:command (K): clearCookies\\n        cy:command (K): getCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n\"\n]",
+              "code": "// https://on.cypress.io/clearcookies\ncy.getCookies().should('be.empty');\ncy.get('#clearCookies .set-a-cookie').click();\ncy.getCookies().should('have.length', 1);\n// cy.clearCookies() yields null\ncy.clearCookies();\ncy.getCookies().should('be.empty');",
+              "err": {},
+              "uuid": "38626f2c-e3aa-4d92-9d41-ace9933c7628",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.clearAllCookies() - clear all browser cookies",
+              "fullTitle": "Cookies cy.clearAllCookies() - clear all browser cookies",
+              "timedOut": null,
+              "duration": 147,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/cookies\\n        cy:command (K): clearCookies\\n        cy:command (K): getAllCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n        cy:command (K): setCookie\\tkey, value\\n        cy:command (K): setCookie\\tkey, value, {domain: .example.com}\\n        cy:command (K): getAllCookies\\n        cy:command (K): assert\\texpected **[ Array(2) ]** to have a length of **2**\\n                        Actual: \\t2\\n                        Expected: \\t2\\n        cy:command (K): clearAllCookies\\n        cy:command (K): getAllCookies\\n        cy:command (K): assert\\texpected **[]** to be empty\\n\"\n]",
+              "code": "// https://on.cypress.io/clearallcookies\ncy.getAllCookies().should('be.empty');\ncy.setCookie('key', 'value');\ncy.setCookie('key', 'value', { domain: '.example.com' });\ncy.getAllCookies().should('have.length', 2);\n// cy.clearAllCookies() yields null\ncy.clearAllCookies();\ncy.getAllCookies().should('be.empty');",
+              "err": {},
+              "uuid": "2ea5796d-e8fe-4d95-ab4d-094a9e042700",
+              "parentUUID": "7b462dea-02b5-4023-8d44-daf4c2d12779",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f2cef237-bd63-4587-a6d6-03e59c400267",
+            "b5f67320-2929-464b-a3bd-9c52fdebfb5a",
+            "ef146894-c5b7-41d9-8b2e-f020afc89968",
+            "d4ed4683-261d-4994-b06f-3fdeec4e8d8b",
+            "e547a49e-5f09-4739-af6f-0e2da3519185",
+            "38626f2c-e3aa-4d92-9d41-ace9933c7628",
+            "2ea5796d-e8fe-4d95-ab4d-094a9e042700"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1352,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

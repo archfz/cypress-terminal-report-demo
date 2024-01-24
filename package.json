@@ -9,10 +9,11 @@
   "author": "Fodor Zoltan",
   "license": "MIT",
   "dependencies": {
-    "cypress": "^12.15.0",
-    "cypress-terminal-report": "^5.2.0"
+    "cypress": "^13.6.3",
+    "cypress-mochawesome-reporter": "^3.8.0",
+    "cypress-terminal-report": "^5.3.12"
   },
   "devDependencies": {
-    "typescript": "^4.3.5"
+    "typescript": "^5.3.3"
   }
 }

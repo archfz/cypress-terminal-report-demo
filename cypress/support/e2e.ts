@@ -15,8 +15,13 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-mochawesome-reporter/register';
 import installLogsCollector from 'cypress-terminal-report/src/installLogsCollector'
-
-installLogsCollector()
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+afterEach(() => {
+  cy.wait(50, {log: false}).then(() => cy.addTestContext(Cypress.TerminalReport.getLogs('txt')))
+});
+
+installLogsCollector()
