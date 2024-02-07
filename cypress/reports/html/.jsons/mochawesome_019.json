@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-07T16:42:51.225Z",
+    "end": "2024-02-07T16:42:54.097Z",
+    "duration": 2872,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f7954c4-7b67-4709-9af6-b7c85e846f0f",
+      "title": "",
+      "fullFile": "cypress/integration/files.cy.ts",
+      "file": "cypress/integration/files.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d1c3d87d-5ed1-4c1e-a9e9-6bf38b2d63f7",
+          "title": "Files",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.fixture() - load a fixture",
+              "fullTitle": "Files cy.fixture() - load a fixture",
+              "timedOut": null,
+              "duration": 401,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/files\\n      cy:intercept (K): Method: GET\\n                        Matcher: \\\"**/comments/*\\\"\\n                        Mocked Response: {\\\"fixture\\\":\\\"example.json\\\"}\\n        cy:command (K): get\\t.fixture-btn\\n        cy:command (K): click\\n            cy:xhr (K): STUBBED GET https://jsonplaceholder.cypress.io/comments/1\\n                        Status: 200\\n        cy:command (K): wait\\t@getComment\\n        cy:command (K): its\\t.response.body\\n        cy:command (K): assert\\texpected **{ Object (name, email, ...) }** to have property **name**\\n        cy:command (K): assert\\texpected **Using fixtures to represent data** to include **Using fixtures to represent data**\\n\"\n]",
+              "code": "// https://on.cypress.io/fixture\n// Instead of writing a response inline you can\n// use a fixture file's content.\n// when application makes an Ajax request matching \"GET **/comments/*\"\n// Cypress will intercept it and reply with the object in `example.json` fixture\ncy.intercept('GET', '**/comments/*', { fixture: 'example.json' }).as('getComment');\n// we have code that gets a comment when\n// the button is clicked in scripts.js\ncy.get('.fixture-btn').click();\ncy.wait('@getComment').its('response.body')\n    .should('have.property', 'name')\n    .and('include', 'Using fixtures to represent data');",
+              "err": {},
+              "uuid": "e91dc639-781a-4e6c-92f0-9851cda20b29",
+              "parentUUID": "d1c3d87d-5ed1-4c1e-a9e9-6bf38b2d63f7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.fixture() or require - load a fixture",
+              "fullTitle": "Files cy.fixture() or require - load a fixture",
+              "timedOut": null,
+              "duration": 101,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/files\\n        cy:command (K): assert\\tfixture in the test context: expected **{ Object (name, email, ...) }** to deeply equal **{ Object (name, email, ...) }**\\n                        Actual: \\t{\\\"name\\\":\\\"Using fixtures to represent data\\\",\\\"email\\\":\\\"hello@cypress.io\\\",\\\"body\\\":\\\"Fixtures are a great way to mock data for responses to routes\\\"}\\n                        Expected: \\t{\\\"name\\\":\\\"Using fixtures to represent data\\\",\\\"email\\\":\\\"hello@cypress.io\\\",\\\"body\\\":\\\"Fixtures are a great way to mock data for responses to routes\\\"}\\n        cy:command (K): wrap\\tObject{3}\\n        cy:command (K): assert\\texpected **{ Object (name, email, ...) }** to deeply equal **{ Object (name, email, ...) }**\\n                        Actual: \\t{\\\"name\\\":\\\"Using fixtures to represent data\\\",\\\"email\\\":\\\"hello@cypress.io\\\",\\\"body\\\":\\\"Fixtures are a great way to mock data for responses to routes\\\"}\\n                        Expected: \\t{\\\"name\\\":\\\"Using fixtures to represent data\\\",\\\"email\\\":\\\"hello@cypress.io\\\",\\\"body\\\":\\\"Fixtures are a great way to mock data for responses to routes\\\"}\\n\"\n]",
+              "code": "// we are inside the \"function () { ... }\"\n// callback and can use test context object \"this\"\n// \"this.example\" was loaded in \"beforeEach\" function callback\nexpect(this.example, 'fixture in the test context')\n    .to.deep.equal(requiredExample);\n// or use \"cy.wrap\" and \"should('deep.equal', ...)\" assertion\ncy.wrap(this.example)\n    .should('deep.equal', requiredExample);",
+              "err": {},
+              "uuid": "3cbcfe62-07b0-4d9f-9fd8-9c621c551254",
+              "parentUUID": "d1c3d87d-5ed1-4c1e-a9e9-6bf38b2d63f7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.readFile() - read file contents",
+              "fullTitle": "Files cy.readFile() - read file contents",
+              "timedOut": null,
+              "duration": 113,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/files\\n        cy:command (K): readFile\\tcypress.config.ts\\n        cy:command (K): assert\\texpected **import {defineConfig} from \\\"cypress\\\";\\\\nimport installLogsPrinter from \\\"cypress-terminal-report/src/installLogsPrinter\\\";\\\\n\\\\nexport default defineConfig({\\\\n  e2e: {\\\\n    specPattern: 'cypress/integration/**/*.ts',\\\\n    reporter: 'cypress-mochawesome-reporter',\\\\n    setupNodeEvents(on) {\\\\n      installLogsPrinter(on, {\\\\n        printLogsToConsole: \\\"always\\\",\\\\n      });\\\\n    }\\\\n  }\\\\n})\\\\n** to be a string\\n\"\n]",
+              "code": "// https://on.cypress.io/readfile\n// You can read a file and yield its contents\n// The filePath is relative to your project's root.\ncy.readFile(Cypress.config('configFile')).then(function (config) {\n    expect(config).to.be.an('string');\n});",
+              "err": {},
+              "uuid": "6de1e1da-18cf-4451-a52e-7d6da77054c5",
+              "parentUUID": "d1c3d87d-5ed1-4c1e-a9e9-6bf38b2d63f7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.writeFile() - write to a file",
+              "fullTitle": "Files cy.writeFile() - write to a file",
+              "timedOut": null,
+              "duration": 325,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/files\\n        cy:request (K): https://jsonplaceholder.cypress.io/users\\n                        Status: 200\\n                        Response body: [\\n                          {\\n                            \\\"id\\\": 1,\\n                            \\\"name\\\": \\\"Leanne Graham\\\",\\n                            \\\"username\\\": \\\"Bret\\\",\\n                            \\\"email\\\": \\\"Sincere@april.biz\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Kulas Light\\\",\\n                              \\\"suite\\\": \\\"Apt. 556\\\",\\n                              \\\"city\\\": \\\"Gwenborough\\\",\\n                              \\\"zipcode\\\": \\\"92998-3874\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-37.3159\\\",\\n                                \\\"lng\\\": \\\"81.1496\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"1-770-736-8031 x56442\\\",\\n                            \\\"website\\\": \\\"hildegard.org\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Romaguera-Crona\\\",\\n                              \\\"catchPhrase\\\": \\\"Multi-layered client-server neural-net\\\",\\n                              \\\"bs\\\": \\\"harness real-time e-markets\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 2,\\n                            \\\"name\\\": \\\"Ervin Howell\\\",\\n                            \\\"username\\\": \\\"Antonette\\\",\\n                            \\\"email\\\": \\\"Shanna@melissa.tv\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Victor Plains\\\",\\n                              \\\"suite\\\": \\\"Suite 879\\\",\\n                              \\\"city\\\": \\\"Wisokyburgh\\\",\\n                              \\\"zipcode\\\": \\\"90566-7771\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-43.9509\\\",\\n                                \\\"lng\\\": \\\"-34.4618\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"010-692-6593 x09125\\\",\\n                            \\\"website\\\": \\\"anastasia.net\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Deckow-Crist\\\",\\n                              \\\"catchPhrase\\\": \\\"Proactive didactic contingency\\\",\\n                              \\\"bs\\\": \\\"synergize scalable supply-chains\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 3,\\n                            \\\"name\\\": \\\"Clementine Bauch\\\",\\n                            \\\"username\\\": \\\"Samantha\\\",\\n                            \\\"email\\\": \\\"Nathan@yesenia.net\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Douglas Extension\\\",\\n                              \\\"suite\\\": \\\"Suite 847\\\",\\n                              \\\"city\\\": \\\"McKenziehaven\\\",\\n                              \\\"zipcode\\\": \\\"59590-4157\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-68.6102\\\",\\n                                \\\"lng\\\": \\\"-47.0653\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"1-463-123-4447\\\",\\n                            \\\"website\\\": \\\"ramiro.info\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Romaguera-Jacobson\\\",\\n                              \\\"catchPhrase\\\": \\\"Face to face bifurcated interface\\\",\\n                              \\\"bs\\\": \\\"e-enable strategic applications\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 4,\\n                            \\\"name\\\": \\\"Patricia Lebsack\\\",\\n                            \\\"username\\\": \\\"Karianne\\\",\\n                            \\\"email\\\": \\\"Julianne.OConner@kory.org\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Hoeger Mall\\\",\\n                              \\\"suite\\\": \\\"Apt. 692\\\",\\n                              \\\"city\\\": \\\"South Elvis\\\",\\n                              \\\"zipcode\\\": \\\"53919-4257\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"29.4572\\\",\\n                                \\\"lng\\\": \\\"-164.2990\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"493-170-9623 x156\\\",\\n                            \\\"website\\\": \\\"kale.biz\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Robel-Corkery\\\",\\n                              \\\"catchPhrase\\\": \\\"Multi-tiered zero tolerance productivity\\\",\\n                              \\\"bs\\\": \\\"transition cutting-edge web services\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 5,\\n                            \\\"name\\\": \\\"Chelsey Dietrich\\\",\\n                            \\\"username\\\": \\\"Kamren\\\",\\n                            \\\"email\\\": \\\"Lucio_Hettinger@annie.ca\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Skiles Walks\\\",\\n                              \\\"suite\\\": \\\"Suite 351\\\",\\n                              \\\"city\\\": \\\"Roscoeview\\\",\\n                              \\\"zipcode\\\": \\\"33263\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-31.8129\\\",\\n                                \\\"lng\\\": \\\"62.5342\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"(254)954-1289\\\",\\n                            \\\"website\\\": \\\"demarco.info\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Keebler LLC\\\",\\n                              \\\"catchPhrase\\\": \\\"User-centric fault-tolerant solution\\\",\\n                              \\\"bs\\\": \\\"revolutionize end-to-end systems\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 6,\\n                            \\\"name\\\": \\\"Mrs. Dennis Schulist\\\",\\n                            \\\"username\\\": \\\"Leopoldo_Corkery\\\",\\n                            \\\"email\\\": \\\"Karley_Dach@jasper.info\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Norberto Crossing\\\",\\n                              \\\"suite\\\": \\\"Apt. 950\\\",\\n                              \\\"city\\\": \\\"South Christy\\\",\\n                              \\\"zipcode\\\": \\\"23505-1337\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-71.4197\\\",\\n                                \\\"lng\\\": \\\"71.7478\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"1-477-935-8478 x6430\\\",\\n                            \\\"website\\\": \\\"ola.org\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Considine-Lockman\\\",\\n                              \\\"catchPhrase\\\": \\\"Synchronised bottom-line interface\\\",\\n                              \\\"bs\\\": \\\"e-enable innovative applications\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 7,\\n                            \\\"name\\\": \\\"Kurtis Weissnat\\\",\\n                            \\\"username\\\": \\\"Elwyn.Skiles\\\",\\n                            \\\"email\\\": \\\"Telly.Hoeger@billy.biz\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Rex Trail\\\",\\n                              \\\"suite\\\": \\\"Suite 280\\\",\\n                              \\\"city\\\": \\\"Howemouth\\\",\\n                              \\\"zipcode\\\": \\\"58804-1099\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"24.8918\\\",\\n                                \\\"lng\\\": \\\"21.8984\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"210.067.6132\\\",\\n                            \\\"website\\\": \\\"elvis.io\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Johns Group\\\",\\n                              \\\"catchPhrase\\\": \\\"Configurable multimedia task-force\\\",\\n                              \\\"bs\\\": \\\"generate enterprise e-tailers\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 8,\\n                            \\\"name\\\": \\\"Nicholas Runolfsdottir V\\\",\\n                            \\\"username\\\": \\\"Maxime_Nienow\\\",\\n                            \\\"email\\\": \\\"Sherwood@rosamond.me\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Ellsworth Summit\\\",\\n                              \\\"suite\\\": \\\"Suite 729\\\",\\n                              \\\"city\\\": \\\"Aliyaview\\\",\\n                              \\\"zipcode\\\": \\\"45169\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-14.3990\\\",\\n                                \\\"lng\\\": \\\"-120.7677\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"586.493.6943 x140\\\",\\n                            \\\"website\\\": \\\"jacynthe.com\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Abernathy Group\\\",\\n                              \\\"catchPhrase\\\": \\\"Implemented secondary concept\\\",\\n                              \\\"bs\\\": \\\"e-enable extensible e-tailers\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 9,\\n                            \\\"name\\\": \\\"Glenna Reichert\\\",\\n                            \\\"username\\\": \\\"Delphine\\\",\\n                            \\\"email\\\": \\\"Chaim_McDermott@dana.io\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Dayna Park\\\",\\n                              \\\"suite\\\": \\\"Suite 449\\\",\\n                              \\\"city\\\": \\\"Bartholomebury\\\",\\n                              \\\"zipcode\\\": \\\"76495-3109\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"24.6463\\\",\\n                                \\\"lng\\\": \\\"-168.8889\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"(775)976-6794 x41206\\\",\\n                            \\\"website\\\": \\\"conrad.com\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Yost and Sons\\\",\\n                              \\\"catchPhrase\\\": \\\"Switchable contextually-based project\\\",\\n                              \\\"bs\\\": \\\"aggregate real-time technologies\\\"\\n                            }\\n                          },\\n                          {\\n                            \\\"id\\\": 10,\\n                            \\\"name\\\": \\\"Clementina DuBuque\\\",\\n                            \\\"username\\\": \\\"Moriah.Stanton\\\",\\n                            \\\"email\\\": \\\"Rey.Padberg@karina.biz\\\",\\n                            \\\"address\\\": {\\n                              \\\"street\\\": \\\"Kattie Turnpike\\\",\\n                              \\\"suite\\\": \\\"Suite 198\\\",\\n                              \\\"city\\\": \\\"Lebsackbury\\\",\\n                              \\\"zipcode\\\": \\\"31428-2261\\\",\\n                              \\\"geo\\\": {\\n                                \\\"lat\\\": \\\"-38.2386\\\",\\n                                \\\"lng\\\": \\\"57.2232\\\"\\n                              }\\n                            },\\n                            \\\"phone\\\": \\\"024-648-3804\\\",\\n                            \\\"website\\\": \\\"ambrose.net\\\",\\n                            \\\"company\\\": {\\n                              \\\"name\\\": \\\"Hoeger LLC\\\",\\n                              \\\"catchPhrase\\\": \\\"Centralized empowering task-force\\\",\\n                              \\\"bs\\\": \\\"target end-to-end models\\\"\\n                            }\\n                          }\\n                        ]\\n        cy:command (K): writeFile\\tcypress/fixtures/users.json\\n        cy:command (K): assert\\texpected **Leanne Graham** to exist\\n        cy:command (K): writeFile\\tcypress/fixtures/profile.json\\n        cy:command (K): assert\\texpected **Jane** to equal **Jane**\\n                        Actual: \\t\\\"Jane\\\"\\n                        Expected: \\t\\\"Jane\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/writefile\n// You can write to a file\n// Use a response from a request to automatically\n// generate a fixture file for use later\ncy.request('https://jsonplaceholder.cypress.io/users')\n    .then(function (response) {\n    cy.writeFile('cypress/fixtures/users.json', response.body);\n});\ncy.fixture('users').should(function (users) {\n    expect(users[0].name).to.exist;\n});\n// JavaScript arrays and objects are stringified\n// and formatted into text.\ncy.writeFile('cypress/fixtures/profile.json', {\n    id: 8739,\n    name: 'Jane',\n    email: 'jane@example.com',\n});\ncy.fixture('profile').should(function (profile) {\n    expect(profile.name).to.eq('Jane');\n});",
+              "err": {},
+              "uuid": "5040872d-c373-44a5-b87a-3887bec2bc14",
+              "parentUUID": "d1c3d87d-5ed1-4c1e-a9e9-6bf38b2d63f7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e91dc639-781a-4e6c-92f0-9851cda20b29",
+            "3cbcfe62-07b0-4d9f-9fd8-9c621c551254",
+            "6de1e1da-18cf-4451-a52e-7d6da77054c5",
+            "5040872d-c373-44a5-b87a-3887bec2bc14"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 940,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "/home/archy/projects/cypress-terminal-report-demo/multi-reporter-config.json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-07T16:44:12.028Z",
+    "end": "2024-02-07T16:44:15.558Z",
+    "duration": 3530,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "065f3f65-c30b-44d7-9003-ed1502809750",
+      "title": "",
+      "fullFile": "cypress/integration/location.cy.ts",
+      "file": "cypress/integration/location.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c856ddc7-29bb-4fe0-a00f-0928399e59f1",
+          "title": "Location",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.hash() - get the current URL hash",
+              "fullTitle": "Location cy.hash() - get the current URL hash",
+              "timedOut": null,
+              "duration": 430,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/location\\n        cy:command (K): hash\\n        cy:command (K): assert\\texpected **''** to be empty\\n\"\n]",
+              "code": "// https://on.cypress.io/hash\ncy.hash().should('be.empty');",
+              "err": {},
+              "uuid": "2e07fb5a-3d96-429a-92a4-4bebbdfe35bf",
+              "parentUUID": "c856ddc7-29bb-4fe0-a00f-0928399e59f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.location() - get window.location",
+              "fullTitle": "Location cy.location() - get window.location",
+              "timedOut": null,
+              "duration": 179,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/location\\n        cy:command (K): location\\n        cy:command (K): assert\\texpected **''** to be empty\\n        cy:command (K): assert\\texpected **https://example.cypress.io/commands/location** to equal **https://example.cypress.io/commands/location**\\n                        Actual: \\t\\\"https://example.cypress.io/commands/location\\\"\\n                        Expected: \\t\\\"https://example.cypress.io/commands/location\\\"\\n        cy:command (K): assert\\texpected **example.cypress.io** to equal **example.cypress.io**\\n                        Actual: \\t\\\"example.cypress.io\\\"\\n                        Expected: \\t\\\"example.cypress.io\\\"\\n        cy:command (K): assert\\texpected **example.cypress.io** to equal **example.cypress.io**\\n                        Actual: \\t\\\"example.cypress.io\\\"\\n                        Expected: \\t\\\"example.cypress.io\\\"\\n        cy:command (K): assert\\texpected **https://example.cypress.io** to equal **https://example.cypress.io**\\n                        Actual: \\t\\\"https://example.cypress.io\\\"\\n                        Expected: \\t\\\"https://example.cypress.io\\\"\\n        cy:command (K): assert\\texpected **/commands/location** to equal **/commands/location**\\n                        Actual: \\t\\\"/commands/location\\\"\\n                        Expected: \\t\\\"/commands/location\\\"\\n        cy:command (K): assert\\texpected **''** to equal **''**\\n        cy:command (K): assert\\texpected **https:** to equal **https:**\\n                        Actual: \\t\\\"https:\\\"\\n                        Expected: \\t\\\"https:\\\"\\n        cy:command (K): assert\\texpected **''** to be empty\\n\"\n]",
+              "code": "// https://on.cypress.io/location\ncy.location().should(function (location) {\n    expect(location.hash).to.be.empty;\n    expect(location.href).to.eq('https://example.cypress.io/commands/location');\n    expect(location.host).to.eq('example.cypress.io');\n    expect(location.hostname).to.eq('example.cypress.io');\n    expect(location.origin).to.eq('https://example.cypress.io');\n    expect(location.pathname).to.eq('/commands/location');\n    expect(location.port).to.eq('');\n    expect(location.protocol).to.eq('https:');\n    expect(location.search).to.be.empty;\n});",
+              "err": {},
+              "uuid": "7c33139c-e669-43f3-a928-cc84a392d1d2",
+              "parentUUID": "c856ddc7-29bb-4fe0-a00f-0928399e59f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.url() - get the current URL",
+              "fullTitle": "Location cy.url() - get the current URL",
+              "timedOut": null,
+              "duration": 129,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/location\\n        cy:command (K): url\\n        cy:command (K): assert\\texpected **https://example.cypress.io/commands/location** to equal **https://example.cypress.io/commands/location**\\n                        Actual: \\t\\\"https://example.cypress.io/commands/location\\\"\\n                        Expected: \\t\\\"https://example.cypress.io/commands/location\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/url\ncy.url().should('eq', 'https://example.cypress.io/commands/location');",
+              "err": {},
+              "uuid": "ede87b36-9049-41fb-b6fb-94ba545ecd46",
+              "parentUUID": "c856ddc7-29bb-4fe0-a00f-0928399e59f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2e07fb5a-3d96-429a-92a4-4bebbdfe35bf",
+            "7c33139c-e669-43f3-a928-cc84a392d1d2",
+            "ede87b36-9049-41fb-b6fb-94ba545ecd46"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 738,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "/home/archy/projects/cypress-terminal-report-demo/multi-reporter-config.json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

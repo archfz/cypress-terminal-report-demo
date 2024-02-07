@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run",
+    "cy:parallel" : "cypress-parallel -s cy:run -t 8 -d cypress/integration"
   },
   "author": "Fodor Zoltan",
   "license": "MIT",
   "dependencies": {
     "cypress": "^13.6.3",
     "cypress-mochawesome-reporter": "^3.8.0",
+    "cypress-parallel": "^0.14.0",
     "cypress-terminal-report": "^5.3.12"
   },
   "devDependencies": {

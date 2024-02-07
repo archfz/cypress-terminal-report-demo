@@ -1,0 +1,476 @@
+{
+  "stats": {
+    "suites": 11,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-07T16:42:45.930Z",
+    "end": "2024-02-07T16:42:49.764Z",
+    "duration": 3834,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5942fb4a-4f94-4323-aade-348ce457ac64",
+      "title": "",
+      "fullFile": "cypress/integration/cypress_api.cy.ts",
+      "file": "cypress/integration/cypress_api.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "78dbf0c8-51f2-4561-9d84-aa0571081c9e",
+          "title": "Cypress APIs",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "63132114-c194-4734-8435-1f5579b9841a",
+              "title": "Cypress.Commands",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": ".add() - create a custom command",
+                  "fullTitle": "Cypress APIs Cypress.Commands .add() - create a custom command",
+                  "timedOut": null,
+                  "duration": 244,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): get\\tbutton\\n\"\n]",
+                  "code": "Cypress.Commands.add('console', {\n    prevSubject: true,\n}, function (subject, method) {\n    // the previous subject is automatically received\n    // and the commands arguments are shifted\n    // allow us to change the console method used\n    method = method || 'log';\n    // log the subject to the console\n    console[method]('The subject is', subject);\n    // whatever we return becomes the new subject\n    // we don't want to change the subject so\n    // we return whatever was passed in\n    return subject;\n});\ncy.get('button').console('info').then(function ($button) {\n    // subject is still $button\n});",
+                  "err": {},
+                  "uuid": "9558012b-6094-4a30-a89e-c0dade6bd7d6",
+                  "parentUUID": "63132114-c194-4734-8435-1f5579b9841a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9558012b-6094-4a30-a89e-c0dade6bd7d6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 244,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "68645555-6a9a-4ade-a3ee-dcc3bdb544cb",
+              "title": "Cypress.Cookies",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": ".debug() - enable or disable debugging",
+                  "fullTitle": "Cypress APIs Cypress.Cookies .debug() - enable or disable debugging",
+                  "timedOut": null,
+                  "duration": 112,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): setCookie\\tfakeCookie, 123ABC\\n        cy:command (K): clearCookie\\tfakeCookie\\n        cy:command (K): setCookie\\tfakeCookie, 123ABC\\n        cy:command (K): clearCookie\\tfakeCookie\\n        cy:command (K): setCookie\\tfakeCookie, 123ABC\\n\"\n]",
+                  "code": "Cypress.Cookies.debug(true);\n// Cypress will now log in the console when\n// cookies are set or cleared\ncy.setCookie('fakeCookie', '123ABC');\ncy.clearCookie('fakeCookie');\ncy.setCookie('fakeCookie', '123ABC');\ncy.clearCookie('fakeCookie');\ncy.setCookie('fakeCookie', '123ABC');",
+                  "err": {},
+                  "uuid": "985f841a-5e0f-4c68-ab08-b6be8899b7c0",
+                  "parentUUID": "68645555-6a9a-4ade-a3ee-dcc3bdb544cb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "985f841a-5e0f-4c68-ab08-b6be8899b7c0"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 112,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "bc3ecf3f-3950-46bf-9a1e-6cf8f5a04fdc",
+              "title": "Cypress.arch",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get CPU architecture name of underlying OS",
+                  "fullTitle": "Cypress APIs Cypress.arch Get CPU architecture name of underlying OS",
+                  "timedOut": null,
+                  "duration": 103,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): assert\\texpected **x64** to exist\\n\"\n]",
+                  "code": "// https://on.cypress.io/arch\nexpect(Cypress.arch).to.exist;",
+                  "err": {},
+                  "uuid": "2b84b632-09bd-4657-bac5-41816d666c71",
+                  "parentUUID": "bc3ecf3f-3950-46bf-9a1e-6cf8f5a04fdc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2b84b632-09bd-4657-bac5-41816d666c71"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 103,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "5ed51025-de64-491e-bae9-a151143eae72",
+              "title": "Cypress.config()",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get and set configuration options",
+                  "fullTitle": "Cypress APIs Cypress.config() Get and set configuration options",
+                  "timedOut": null,
+                  "duration": 153,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **animationDistanceThreshold**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **animationDistanceThreshold** of **5**\\n                        Actual: \\t5\\n                        Expected: \\t5\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **baseUrl**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **baseUrl** of **null**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **defaultCommandTimeout**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **defaultCommandTimeout** of **4000**\\n                        Actual: \\t4000\\n                        Expected: \\t4000\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **requestTimeout**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **requestTimeout** of **5000**\\n                        Actual: \\t5000\\n                        Expected: \\t5000\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **responseTimeout**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **responseTimeout** of **30000**\\n                        Actual: \\t30000\\n                        Expected: \\t30000\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **viewportHeight**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **viewportHeight** of **660**\\n                        Actual: \\t660\\n                        Expected: \\t660\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **viewportWidth**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **viewportWidth** of **1000**\\n                        Actual: \\t1000\\n                        Expected: \\t1000\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **pageLoadTimeout**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **pageLoadTimeout** of **60000**\\n                        Actual: \\t60000\\n                        Expected: \\t60000\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **waitForAnimations**\\n        cy:command (K): assert\\texpected **{ Object (specPattern, reporter, ...) }** to have property **waitForAnimations** of **true**\\n                        Actual: \\ttrue\\n                        Expected: \\ttrue\\n        cy:command (K): assert\\texpected **60000** to equal **60000**\\n                        Actual: \\t60000\\n                        Expected: \\t60000\\n        cy:command (K): assert\\texpected **20000** to equal **20000**\\n                        Actual: \\t20000\\n                        Expected: \\t20000\\n\"\n]",
+                  "code": "// https://on.cypress.io/config\nvar myConfig = Cypress.config();\nexpect(myConfig).to.have.property('animationDistanceThreshold', 5);\nexpect(myConfig).to.have.property('baseUrl', null);\nexpect(myConfig).to.have.property('defaultCommandTimeout', 4000);\nexpect(myConfig).to.have.property('requestTimeout', 5000);\nexpect(myConfig).to.have.property('responseTimeout', 30000);\nexpect(myConfig).to.have.property('viewportHeight', 660);\nexpect(myConfig).to.have.property('viewportWidth', 1000);\nexpect(myConfig).to.have.property('pageLoadTimeout', 60000);\nexpect(myConfig).to.have.property('waitForAnimations', true);\nexpect(Cypress.config('pageLoadTimeout')).to.eq(60000);\n// this will change the config for the rest of your tests!\nCypress.config('pageLoadTimeout', 20000);\nexpect(Cypress.config('pageLoadTimeout')).to.eq(20000);\nCypress.config('pageLoadTimeout', 60000);",
+                  "err": {},
+                  "uuid": "c4f2a0a4-bc23-424a-9374-5f825530477b",
+                  "parentUUID": "5ed51025-de64-491e-bae9-a151143eae72",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c4f2a0a4-bc23-424a-9374-5f825530477b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 153,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a2ca997e-6d8b-488f-8c8a-c615e84854c7",
+              "title": "Cypress.dom",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": ".isHidden() - determine if a DOM element is hidden",
+                  "fullTitle": "Cypress APIs Cypress.dom .isHidden() - determine if a DOM element is hidden",
+                  "timedOut": null,
+                  "duration": 139,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): assert\\texpected **true** to be true\\n                        Actual: \\ttrue\\n                        Expected: \\ttrue\\n        cy:command (K): assert\\texpected **false** to be false\\n\"\n]",
+                  "code": "var hiddenP = Cypress.$('.dom-p p.hidden').get(0);\nvar visibleP = Cypress.$('.dom-p p.visible').get(0);\n// our first paragraph has css class 'hidden'\nexpect(Cypress.dom.isHidden(hiddenP)).to.be.true;\nexpect(Cypress.dom.isHidden(visibleP)).to.be.false;",
+                  "err": {},
+                  "uuid": "51b6dd6c-b94e-4898-a49a-08cc86e34808",
+                  "parentUUID": "a2ca997e-6d8b-488f-8c8a-c615e84854c7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "51b6dd6c-b94e-4898-a49a-08cc86e34808"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 139,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "872befd4-4c3c-4269-8385-1ef428e1077b",
+              "title": "Cypress.env()",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get environment variables",
+                  "fullTitle": "Cypress APIs Cypress.env() Get environment variables",
+                  "timedOut": null,
+                  "duration": 93,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): assert\\texpected **veronica.dev.local** to equal **veronica.dev.local**\\n                        Actual: \\t\\\"veronica.dev.local\\\"\\n                        Expected: \\t\\\"veronica.dev.local\\\"\\n        cy:command (K): assert\\texpected **http://localhost:8888/v2/** to equal **http://localhost:8888/v2/**\\n                        Actual: \\t\\\"http://localhost:8888/v2/\\\"\\n                        Expected: \\t\\\"http://localhost:8888/v2/\\\"\\n        cy:command (K): assert\\texpected **{ Object (THREAD, host, ...) }** to have property **host**\\n        cy:command (K): assert\\texpected **{ Object (THREAD, host, ...) }** to have property **host** of **veronica.dev.local**\\n                        Actual: \\t\\\"veronica.dev.local\\\"\\n                        Expected: \\t\\\"veronica.dev.local\\\"\\n        cy:command (K): assert\\texpected **{ Object (THREAD, host, ...) }** to have property **api_server**\\n        cy:command (K): assert\\texpected **{ Object (THREAD, host, ...) }** to have property **api_server** of **http://localhost:8888/v2/**\\n                        Actual: \\t\\\"http://localhost:8888/v2/\\\"\\n                        Expected: \\t\\\"http://localhost:8888/v2/\\\"\\n\"\n]",
+                  "code": "// https://on.cypress.io/env\n// set multiple environment variables\nCypress.env({\n    host: 'veronica.dev.local',\n    api_server: 'http://localhost:8888/v1/',\n});\n// get environment variable\nexpect(Cypress.env('host')).to.eq('veronica.dev.local');\n// set environment variable\nCypress.env('api_server', 'http://localhost:8888/v2/');\nexpect(Cypress.env('api_server')).to.eq('http://localhost:8888/v2/');\n// get all environment variable\nexpect(Cypress.env()).to.have.property('host', 'veronica.dev.local');\nexpect(Cypress.env()).to.have.property('api_server', 'http://localhost:8888/v2/');",
+                  "err": {},
+                  "uuid": "02cb913a-f5bb-4571-b452-faf06568c793",
+                  "parentUUID": "872befd4-4c3c-4269-8385-1ef428e1077b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "02cb913a-f5bb-4571-b452-faf06568c793"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 93,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "ac88eb12-2f0f-4dcc-92dd-8df88398ab04",
+              "title": "Cypress.log",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Control what is printed to the Command Log",
+                  "fullTitle": "Cypress APIs Cypress.log Control what is printed to the Command Log",
+                  "timedOut": null,
+                  "duration": 87,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n\"\n]",
+                  "code": "// https://on.cypress.io/cypress-log",
+                  "err": {},
+                  "uuid": "b5486a0a-0ef4-414b-835e-c2400732279a",
+                  "parentUUID": "ac88eb12-2f0f-4dcc-92dd-8df88398ab04",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b5486a0a-0ef4-414b-835e-c2400732279a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 87,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "32db893b-bd54-4445-861a-f0abbbdf3d54",
+              "title": "Cypress.platform",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get underlying OS name",
+                  "fullTitle": "Cypress APIs Cypress.platform Get underlying OS name",
+                  "timedOut": null,
+                  "duration": 100,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): assert\\texpected **linux** to exist\\n\"\n]",
+                  "code": "// https://on.cypress.io/platform\nexpect(Cypress.platform).to.be.exist;",
+                  "err": {},
+                  "uuid": "841d4cf4-0cb9-4ce8-9e1a-b65e8dd56836",
+                  "parentUUID": "32db893b-bd54-4445-861a-f0abbbdf3d54",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "841d4cf4-0cb9-4ce8-9e1a-b65e8dd56836"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 100,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "993810af-21dc-4bf9-ad65-ed8f10d730ea",
+              "title": "Cypress.version",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get current version of Cypress being run",
+                  "fullTitle": "Cypress APIs Cypress.version Get current version of Cypress being run",
+                  "timedOut": null,
+                  "duration": 98,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): assert\\texpected **13.6.3** to exist\\n\"\n]",
+                  "code": "// https://on.cypress.io/version\nexpect(Cypress.version).to.be.exist;",
+                  "err": {},
+                  "uuid": "dd32780b-ec6d-4d2c-b7a5-a9966eded342",
+                  "parentUUID": "993810af-21dc-4bf9-ad65-ed8f10d730ea",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "dd32780b-ec6d-4d2c-b7a5-a9966eded342"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 98,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "9bc80d1e-8982-4915-a4de-28db12eb4f1e",
+              "title": "Cypress.spec",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get current spec information",
+                  "fullTitle": "Cypress APIs Cypress.spec Get current spec information",
+                  "timedOut": null,
+                  "duration": 102,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/cypress-api\\n        cy:command (K): wrap\\tObject{9}\\n        cy:command (K): assert\\texpected **{ Object (fileExtension, baseName, ...) }** to contain keys **name**, **relative**, and **absolute**\\n                        Actual: \\t[\\\"absolute\\\",\\\"baseName\\\",\\\"fileExtension\\\",\\\"fileName\\\",\\\"name\\\",\\\"relative\\\",\\\"relativeToCommonRoot\\\",\\\"specFileExtension\\\",\\\"specType\\\"]\\n                        Expected: \\t[\\\"absolute\\\",\\\"name\\\",\\\"relative\\\"]\\n\"\n]",
+                  "code": "// https://on.cypress.io/spec\n// wrap the object so we can inspect it easily by clicking in the command log\ncy.wrap(Cypress.spec).should('include.keys', ['name', 'relative', 'absolute']);",
+                  "err": {},
+                  "uuid": "d94d5487-9d0f-4cdc-831a-ec03e15697da",
+                  "parentUUID": "9bc80d1e-8982-4915-a4de-28db12eb4f1e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d94d5487-9d0f-4cdc-831a-ec03e15697da"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 102,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "/home/archy/projects/cypress-terminal-report-demo/multi-reporter-config.json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

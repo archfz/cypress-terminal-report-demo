@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-07T16:43:32.886Z",
+    "end": "2024-02-07T16:43:37.353Z",
+    "duration": 4467,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "72ff03cb-7e8c-4384-8ca7-9117ba49976c",
+      "title": "",
+      "fullFile": "cypress/integration/viewport.cy.ts",
+      "file": "cypress/integration/viewport.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "def5697d-9b33-4fb8-bf5d-1a819000d053",
+          "title": "Viewport",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.viewport() - set the viewport size and dimension",
+              "fullTitle": "Viewport cy.viewport() - set the viewport size and dimension",
+              "timedOut": null,
+              "duration": 2961,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/viewport\\n        cy:command (K): get\\t#navbar\\n        cy:command (K): assert\\texpected **<div#navbar.navbar-collapse.collapse>** to be **visible**\\n        cy:command (K): viewport\\t320, 480\\n        cy:command (K): get\\t#navbar\\n        cy:command (K): assert\\texpected **<div#navbar.navbar-collapse.collapse>** not to be **visible**\\n        cy:command (K): get\\t.navbar-toggle\\n        cy:command (K): assert\\texpected **<button.navbar-toggle.collapsed>** to be **visible**\\n        cy:command (K): click\\n        cy:command (K): get\\t.nav\\n        cy:command (K): find\\ta\\n        cy:command (K): assert\\texpected **[ <a.dropdown-toggle>, 20 more... ]** to be **visible**\\n        cy:command (K): viewport\\t2999, 2999\\n        cy:command (K): viewport\\tmacbook-15\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tmacbook-13\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tmacbook-11\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tipad-2\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tipad-mini\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tiphone-6+\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tiphone-6\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tiphone-5\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tiphone-4\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tiphone-3\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tipad-2, portrait\\n        cy:command (K): wait\\t200\\n        cy:command (K): viewport\\tiphone-4, landscape\\n        cy:command (K): wait\\t200\\n\"\n]",
+              "code": "// https://on.cypress.io/viewport\ncy.get('#navbar').should('be.visible');\ncy.viewport(320, 480);\n// the navbar should have collapse since our screen is smaller\ncy.get('#navbar').should('not.be.visible');\ncy.get('.navbar-toggle').should('be.visible').click();\ncy.get('.nav').find('a').should('be.visible');\n// lets see what our app looks like on a super large screen\ncy.viewport(2999, 2999);\n// cy.viewport() accepts a set of preset sizes\n// to easily set the screen to a device's width and height\n// We added a cy.wait() between each viewport change so you can see\n// the change otherwise it is a little too fast to see :)\ncy.viewport('macbook-15');\ncy.wait(200);\ncy.viewport('macbook-13');\ncy.wait(200);\ncy.viewport('macbook-11');\ncy.wait(200);\ncy.viewport('ipad-2');\ncy.wait(200);\ncy.viewport('ipad-mini');\ncy.wait(200);\ncy.viewport('iphone-6+');\ncy.wait(200);\ncy.viewport('iphone-6');\ncy.wait(200);\ncy.viewport('iphone-5');\ncy.wait(200);\ncy.viewport('iphone-4');\ncy.wait(200);\ncy.viewport('iphone-3');\ncy.wait(200);\n// cy.viewport() accepts an orientation for all presets\n// the default orientation is 'portrait'\ncy.viewport('ipad-2', 'portrait');\ncy.wait(200);\ncy.viewport('iphone-4', 'landscape');\ncy.wait(200);\n// The viewport will be reset back to the default dimensions\n// in between tests (the  default can be set in cypress.config.{js|ts})",
+              "err": {},
+              "uuid": "030f553b-2531-4311-996a-7981a2ba6e33",
+              "parentUUID": "def5697d-9b33-4fb8-bf5d-1a819000d053",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "030f553b-2531-4311-996a-7981a2ba6e33"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2961,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "/home/archy/projects/cypress-terminal-report-demo/multi-reporter-config.json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

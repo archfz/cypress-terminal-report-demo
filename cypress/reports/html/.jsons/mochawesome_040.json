@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-07T16:44:08.510Z",
+    "end": "2024-02-07T16:44:12.508Z",
+    "duration": 3998,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "094637e7-55e6-4ab4-98fe-30d196935331",
+      "title": "",
+      "fullFile": "cypress/integration/window.cy.ts",
+      "file": "cypress/integration/window.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cd5c0bd9-f13f-4916-b637-4349b65a71ad",
+          "title": "Window",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.window() - get the global window object",
+              "fullTitle": "Window cy.window() - get the global window object",
+              "timedOut": null,
+              "duration": 322,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/window\\n        cy:command (K): window\\n        cy:command (K): assert\\texpected **<window>** to have property **top**\\n\"\n]",
+              "code": "// https://on.cypress.io/window\ncy.window().should('have.property', 'top');",
+              "err": {},
+              "uuid": "09037c63-88a8-40cf-a9d7-aee8fea42ac1",
+              "parentUUID": "cd5c0bd9-f13f-4916-b637-4349b65a71ad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.document() - get the document object",
+              "fullTitle": "Window cy.document() - get the document object",
+              "timedOut": null,
+              "duration": 143,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/window\\n        cy:command (K): document\\n        cy:command (K): assert\\texpected **<document>** to have property **charset**\\n        cy:command (K): assert\\texpected **UTF-8** to equal **UTF-8**\\n                        Actual: \\t\\\"UTF-8\\\"\\n                        Expected: \\t\\\"UTF-8\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/document\ncy.document().should('have.property', 'charset').and('eq', 'UTF-8');",
+              "err": {},
+              "uuid": "99bda447-f3eb-48e8-8ffb-5b79c4a11315",
+              "parentUUID": "cd5c0bd9-f13f-4916-b637-4349b65a71ad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.title() - get the title",
+              "fullTitle": "Window cy.title() - get the title",
+              "timedOut": null,
+              "duration": 149,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/window\\n        cy:command (K): title\\n        cy:command (K): assert\\texpected **Cypress.io: Kitchen Sink** to include **Kitchen Sink**\\n\"\n]",
+              "code": "// https://on.cypress.io/title\ncy.title().should('include', 'Kitchen Sink');",
+              "err": {},
+              "uuid": "c052ca2b-d5d8-47f3-b01b-bebee93adc4a",
+              "parentUUID": "cd5c0bd9-f13f-4916-b637-4349b65a71ad",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "09037c63-88a8-40cf-a9d7-aee8fea42ac1",
+            "99bda447-f3eb-48e8-8ffb-5b79c4a11315",
+            "c052ca2b-d5d8-47f3-b01b-bebee93adc4a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 614,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "/home/archy/projects/cypress-terminal-report-demo/multi-reporter-config.json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

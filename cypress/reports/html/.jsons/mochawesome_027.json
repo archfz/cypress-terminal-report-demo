@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-07T16:43:15.355Z",
+    "end": "2024-02-07T16:43:18.723Z",
+    "duration": 3368,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4ff68a57-d0da-434b-9db9-509d7e92d33a",
+      "title": "",
+      "fullFile": "cypress/integration/querying.cy.ts",
+      "file": "cypress/integration/querying.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "03373f87-5b5d-4b6c-9d44-fa1c14ccc779",
+          "title": "Querying",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.get() - query DOM elements",
+              "fullTitle": "Querying cy.get() - query DOM elements",
+              "timedOut": null,
+              "duration": 310,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/querying\\n        cy:command (K): get\\t#query-btn\\n        cy:command (K): assert\\texpected **<button#query-btn.query-btn.btn.btn-primary>** to contain **Button**\\n        cy:command (K): get\\t.query-btn\\n        cy:command (K): assert\\texpected **<button#query-btn.query-btn.btn.btn-primary>** to contain **Button**\\n        cy:command (K): get\\t#querying .well>button:first\\n        cy:command (K): assert\\texpected **<button#query-btn.query-btn.btn.btn-primary>** to contain **Button**\\n        cy:command (K): get\\t[data-test-id=\\\"test-example\\\"]\\n        cy:command (K): assert\\texpected **<div.example>** to have class **example**\\n        cy:command (K): get\\t[data-test-id=\\\"test-example\\\"]\\n        cy:command (K): invoke\\t.attr()\\n        cy:command (K): assert\\texpected **test-example** to equal **test-example**\\n                        Actual: \\t\\\"test-example\\\"\\n                        Expected: \\t\\\"test-example\\\"\\n        cy:command (K): get\\t[data-test-id=\\\"test-example\\\"]\\n        cy:command (K): invoke\\t.css()\\n        cy:command (K): assert\\texpected **static** to equal **static**\\n                        Actual: \\t\\\"static\\\"\\n                        Expected: \\t\\\"static\\\"\\n        cy:command (K): get\\t[data-test-id=\\\"test-example\\\"]\\n        cy:command (K): assert\\texpected **<div.example>** to have attribute **data-test-id** with the value **test-example**\\n                        Actual: \\t\\\"test-example\\\"\\n                        Expected: \\t\\\"test-example\\\"\\n        cy:command (K): assert\\texpected **<div.example>** to have CSS property **position** with the value **static**\\n                        Actual: \\t\\\"static\\\"\\n                        Expected: \\t\\\"static\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/get\ncy.get('#query-btn').should('contain', 'Button');\ncy.get('.query-btn').should('contain', 'Button');\ncy.get('#querying .well>button:first').should('contain', 'Button');\n//              ↲\n// Use CSS selectors just like jQuery\ncy.get('[data-test-id=\"test-example\"]').should('have.class', 'example');\n// 'cy.get()' yields jQuery object, you can get its attribute\n// by invoking `.attr()` method\ncy.get('[data-test-id=\"test-example\"]')\n    .invoke('attr', 'data-test-id')\n    .should('equal', 'test-example');\n// or you can get element's CSS property\ncy.get('[data-test-id=\"test-example\"]')\n    .invoke('css', 'position')\n    .should('equal', 'static');\n// or use assertions directly during 'cy.get()'\n// https://on.cypress.io/assertions\ncy.get('[data-test-id=\"test-example\"]')\n    .should('have.attr', 'data-test-id', 'test-example')\n    .and('have.css', 'position', 'static');",
+              "err": {},
+              "uuid": "68e5c156-d1df-4600-8dbf-217fbd36ee68",
+              "parentUUID": "03373f87-5b5d-4b6c-9d44-fa1c14ccc779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.contains() - query DOM elements with matching content",
+              "fullTitle": "Querying cy.contains() - query DOM elements with matching content",
+              "timedOut": null,
+              "duration": 120,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/querying\\n        cy:command (K): get\\t.query-list\\n        cy:command (K): contains\\tbananas\\n        cy:command (K): assert\\texpected **<li.third>** to have class **third**\\n        cy:command (K): get\\t.query-list\\n        cy:command (K): contains\\t/^b\\\\w+/\\n        cy:command (K): assert\\texpected **<li.third>** to have class **third**\\n        cy:command (K): get\\t.query-list\\n        cy:command (K): contains\\tapples\\n        cy:command (K): assert\\texpected **<li.first>** to have class **first**\\n        cy:command (K): get\\t#querying\\n        cy:command (K): contains\\tul, oranges\\n        cy:command (K): assert\\texpected **<ul.query-list>** to have class **query-list**\\n        cy:command (K): get\\t.query-button\\n        cy:command (K): contains\\tSave Form\\n        cy:command (K): assert\\texpected **<button.btn.btn-default>** to have class **btn**\\n\"\n]",
+              "code": "// https://on.cypress.io/contains\ncy.get('.query-list')\n    .contains('bananas')\n    .should('have.class', 'third');\n// we can pass a regexp to `.contains()`\ncy.get('.query-list')\n    .contains(/^b\\w+/)\n    .should('have.class', 'third');\ncy.get('.query-list')\n    .contains('apples')\n    .should('have.class', 'first');\n// passing a selector to contains will\n// yield the selector containing the text\ncy.get('#querying')\n    .contains('ul', 'oranges')\n    .should('have.class', 'query-list');\ncy.get('.query-button')\n    .contains('Save Form')\n    .should('have.class', 'btn');",
+              "err": {},
+              "uuid": "ef250a90-ddb2-4633-a27f-78e99a90ff60",
+              "parentUUID": "03373f87-5b5d-4b6c-9d44-fa1c14ccc779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": ".within() - query DOM elements within a specific element",
+              "fullTitle": "Querying .within() - query DOM elements within a specific element",
+              "timedOut": null,
+              "duration": 149,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/querying\\n        cy:command (K): get\\t.query-form\\n        cy:command (K): within\\n        cy:command (K): get\\tinput:first\\n        cy:command (K): assert\\texpected **<input#inputEmail.form-control>** to have attribute **placeholder** with the value **Email**\\n                        Actual: \\t\\\"Email\\\"\\n                        Expected: \\t\\\"Email\\\"\\n        cy:command (K): get\\tinput:last\\n        cy:command (K): assert\\texpected **<input#inputPassword.form-control>** to have attribute **placeholder** with the value **Password**\\n                        Actual: \\t\\\"Password\\\"\\n                        Expected: \\t\\\"Password\\\"\\n\"\n]",
+              "code": "// https://on.cypress.io/within\ncy.get('.query-form').within(function () {\n    cy.get('input:first').should('have.attr', 'placeholder', 'Email');\n    cy.get('input:last').should('have.attr', 'placeholder', 'Password');\n});",
+              "err": {},
+              "uuid": "0ae6ea01-e915-49f2-8b28-fa05a71e0818",
+              "parentUUID": "03373f87-5b5d-4b6c-9d44-fa1c14ccc779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.root() - query the root DOM element",
+              "fullTitle": "Querying cy.root() - query the root DOM element",
+              "timedOut": null,
+              "duration": 130,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/querying\\n        cy:command (K): root\\n        cy:command (K): assert\\texpected **<html>** to match **html**\\n        cy:command (K): get\\t.query-ul\\n        cy:command (K): within\\n        cy:command (K): root\\n        cy:command (K): assert\\texpected **<ul.query-ul>** to have class **query-ul**\\n\"\n]",
+              "code": "// https://on.cypress.io/root\n// By default, root is the document\ncy.root().should('match', 'html');\ncy.get('.query-ul').within(function () {\n    // In this within, the root is now the ul DOM element\n    cy.root().should('have.class', 'query-ul');\n});",
+              "err": {},
+              "uuid": "106be759-e00b-428e-957a-afda61694108",
+              "parentUUID": "03373f87-5b5d-4b6c-9d44-fa1c14ccc779",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "best practices - selecting elements",
+              "fullTitle": "Querying best practices - selecting elements",
+              "timedOut": null,
+              "duration": 653,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      []\n    ]\n  },\n  \"        cy:command (K): visit\\thttps://example.cypress.io/commands/querying\\n        cy:command (K): get\\t[data-cy=best-practices-selecting-elements]\\n        cy:command (K): within\\n        cy:command (K): get\\tbutton\\n        cy:command (K): click\\n        cy:command (K): get\\t.btn.btn-large\\n        cy:command (K): click\\n        cy:command (K): get\\t[name=submission]\\n        cy:command (K): click\\n        cy:command (K): get\\t#main\\n        cy:command (K): click\\n        cy:command (K): get\\t#main[role=button]\\n        cy:command (K): click\\n        cy:command (K): contains\\tSubmit\\n        cy:command (K): click\\n        cy:command (K): get\\t[data-cy=submit]\\n        cy:command (K): click\\n\"\n]",
+              "code": "// https://on.cypress.io/best-practices#Selecting-Elements\ncy.get('[data-cy=best-practices-selecting-elements]').within(function () {\n    // Worst - too generic, no context\n    cy.get('button').click();\n    // Bad. Coupled to styling. Highly subject to change.\n    cy.get('.btn.btn-large').click();\n    // Average. Coupled to the `name` attribute which has HTML semantics.\n    cy.get('[name=submission]').click();\n    // Better. But still coupled to styling or JS event listeners.\n    cy.get('#main').click();\n    // Slightly better. Uses an ID but also ensures the element\n    // has an ARIA role attribute\n    cy.get('#main[role=button]').click();\n    // Much better. But still coupled to text content that may change.\n    cy.contains('Submit').click();\n    // Best. Insulated from all changes.\n    cy.get('[data-cy=submit]').click();\n});",
+              "err": {},
+              "uuid": "bad67407-780e-43d5-a1b7-484a551ea792",
+              "parentUUID": "03373f87-5b5d-4b6c-9d44-fa1c14ccc779",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "68e5c156-d1df-4600-8dbf-217fbd36ee68",
+            "ef250a90-ddb2-4633-a27f-78e99a90ff60",
+            "0ae6ea01-e915-49f2-8b28-fa05a71e0818",
+            "106be759-e00b-428e-957a-afda61694108",
+            "bad67407-780e-43d5-a1b7-484a551ea792"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1362,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "/home/archy/projects/cypress-terminal-report-demo/multi-reporter-config.json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
