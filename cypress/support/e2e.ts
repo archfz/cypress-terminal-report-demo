@@ -24,4 +24,11 @@ afterEach(() => {
   cy.wait(50, {log: false}).then(() => cy.addTestContext(Cypress.TerminalReport.getLogs('txt')))
 });
 
-installLogsCollector()
+const IGNORED_URLS = ['launchdarkly', 'visualstudio'];
+installLogsCollector({
+  filterLog: ({ message }: any) => !IGNORED_URLS.some(url => message.includes(url)) && !message.includes('@ngrx/store-devtools'),
+  xhr: {
+    printHeaderData: false,
+    printRequestData: false,
+  },
+})
