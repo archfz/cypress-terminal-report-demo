@@ -11,7 +11,7 @@
   "dependencies": {
     "cypress": "^13.14.2",
     "cypress-mochawesome-reporter": "^3.8.0",
-    "cypress-terminal-report": "^7.0.0"
+    "cypress-terminal-report": "^7.0.4"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
