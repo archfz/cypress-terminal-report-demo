@@ -24,4 +24,4 @@ afterEach(() => {
   cy.wait(50, {log: false}).then(() => cy.addTestContext(Cypress.TerminalReport.getLogs('txt')))
 });
 
-installLogsCollector()
+require('cypress-terminal-report/src/installLogsCollector')();
